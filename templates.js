@@ -1,6 +1,6 @@
 module.exports = {
     container_start: e =>
-        `&#9654;&#65039; <b>${e.Actor.Attributes.name}</b> started\n${e.Actor.Attributes.image}\n#${e.Actor.Attributes.name}`,
+        `&#9654;&#65039; <b>${e.Actor.Attributes.name}</b> started\n${e.Actor.Attributes.image}\n\n\n#${e.Actor.Attributes.name}`,
 
     container_die: e => {
         const exitCode = e.Actor.Attributes.exitCode;
@@ -24,11 +24,11 @@ module.exports = {
         };
 
         if (exitCode in normalMap) {
-            return `&#9209;&#65039; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${normalMap[exitCode]}\n#${e.Actor.Attributes.name}`;
+            return `&#9209;&#65039; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${normalMap[exitCode]}\n\n\n#${e.Actor.Attributes.name}`;
         } else if (exitCode in nonNormalMap) {
-            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${nonNormalMap[exitCode]}\n#${e.Actor.Attributes.name}`;
+            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${nonNormalMap[exitCode]}\n\n\n#${e.Actor.Attributes.name}`;
         } else {
-            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped with exit code (${exitCode})!\n${e.Actor.Attributes.image}\n#${e.Actor.Attributes.name}`;
+            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped with exit code (${exitCode})!\n${e.Actor.Attributes.image}\n\n\n#${e.Actor.Attributes.name}`;
         }
     },
 
