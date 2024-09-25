@@ -1,6 +1,6 @@
 module.exports = {
     container_start: e =>
-        `&#9654;&#65039; <b>${e.Actor.Attributes.name}</b> started\n${e.Actor.Attributes.image}`,
+        `&#9654;&#65039; <b>${e.Actor.Attributes.name}</b> started\n${e.Actor.Attributes.image}\n#${e.Actor.Attributes.name}`,
 
     container_die: e => {
         const exitCode = e.Actor.Attributes.exitCode;
@@ -21,21 +21,20 @@ module.exports = {
             "139": "Segmentation fault: Exit code 139",
             "255": "Unknown error. Exit code 255",
             // Add more non-normal exit codes as needed
-        }
+        };
 
         if (exitCode in normalMap) {
-            return `&#9209;&#65039; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${normalMap[exitCode]}`;
+            return `&#9209;&#65039; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${normalMap[exitCode]}\n#${e.Actor.Attributes.name}`;
         } else if (exitCode in nonNormalMap) {
-            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${nonNormalMap[exitCode]}`;
+            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped!\n${e.Actor.Attributes.image}\n${nonNormalMap[exitCode]}\n#${e.Actor.Attributes.name}`;
         } else {
-            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped with exit code (${exitCode})!\n${e.Actor.Attributes.image}`;
+            return `&#128308; <b>${e.Actor.Attributes.name}</b> stopped with exit code (${exitCode})!\n${e.Actor.Attributes.image}\n#${e.Actor.Attributes.name}`;
         }
     },
 
     'container_health_status: healthy': e =>
-        `&#9989; <b>${e.Actor.Attributes.name}</b> healthy\n${e.Actor.Attributes.image}`,
+        `&#9989; <b>${e.Actor.Attributes.name}</b> healthy\n${e.Actor.Attributes.image}\n#${e.Actor.Attributes.name}`,
 
     'container_health_status: unhealthy': e =>
-        `&#9888; <b>${e.Actor.Attributes.name}</b> unhealthy!\n${e.Actor.Attributes.image}`,
+        `&#9888; <b>${e.Actor.Attributes.name}</b> unhealthy!\n${e.Actor.Attributes.image}\n#${e.Actor.Attributes.name}`,
 };
-
