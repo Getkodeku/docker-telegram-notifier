@@ -4,7 +4,7 @@
   "description": "Telegram integration for notifying Docker events",
   "repository": {
     "type": "git",
-    "url": "https://github.com/poma/docker-telegram-notifier"
+    "url": "https://github.com/Getkodeku/docker-telegram-notifier"
   },
   "main": "app.js",
   "scripts": {
